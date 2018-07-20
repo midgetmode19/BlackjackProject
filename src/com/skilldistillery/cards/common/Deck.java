@@ -30,11 +30,11 @@ public class Deck {
 		//return how many cards in list
 		return cardsAmount;
 	}
-	public Card dealCard () {
+	public Card getCard () {
 		//deals a card from the deck
-		Card dealtCard = cardsDeck.remove(0);
+		Card pickedCard = cardsDeck.remove(0);
 		//card is removed from deck and it's value is returned
-		return dealtCard;
+		return pickedCard;
 	}
 	public void shuffleDeck() {
 		Collections.shuffle(cardsDeck);

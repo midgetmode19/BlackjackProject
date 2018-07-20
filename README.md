@@ -7,6 +7,6 @@
 
 #### Technologies Used
   * Java
-  * Java Classes and enums
+  * Java Classes, abstract classes, and enums
 
 #### Lessons Learned

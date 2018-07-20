@@ -1,6 +1,9 @@
 package com.skilldistillery.cards.common;
 
 public class Player {
-	//has a hand
+	Hand hand; //has a hand
+	Card card; //hand has cards
+		//display cards in hand
+	
 
 }
