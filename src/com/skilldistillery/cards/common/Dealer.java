@@ -3,7 +3,10 @@ package com.skilldistillery.cards.common;
 public class Dealer {
 	Hand hand; //has a hand
 	Card card; //hand has cards
-	//gets a card from the deck (deal cards method?)
+	public Dealer() {
+		
+	}
+	//gets a card from the deck (drawCards method?)
 	//gives that card to player hand face up (sysout)
 	//gets another card from the deck
 	//places that card facedown in dealer hand (sysout card facedown)
