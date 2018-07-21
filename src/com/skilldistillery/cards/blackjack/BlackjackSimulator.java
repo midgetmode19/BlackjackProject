@@ -27,7 +27,9 @@ public class BlackjackSimulator {
 			try {
 				bjs.run();
 			} catch (InputMismatchException e) {
+				bjs.sc.close();
 				System.out.println("Invalid input.");
+				bjs.sc = new Scanner(System.in);
 			}
 		} while (!(bjs.playAgain.equalsIgnoreCase("Y")));
 	}
@@ -172,8 +174,6 @@ public class BlackjackSimulator {
 				System.out.println(dealerHand.toString());
 			}
 			if (dealerHand.getHandValue() > 21) {
-				System.out.println("~~~Dealer~~~");
-				System.out.println(dealerHand.toString());
 				System.out.println("Dealer busts. You win!");
 				playAgainMenu();
 			}
