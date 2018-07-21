@@ -1,13 +1,11 @@
 package com.skilldistillery.cards.blackjack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackHand extends Hand {
-	List<Card> cardsInHand = new ArrayList<>();
 	Card card;
 
 	public BlackjackHand() {
@@ -17,10 +15,11 @@ public class BlackjackHand extends Hand {
 	@Override
 	public int getHandValue() {
 		//iterate through hand
+		List<Card> myHand = getHand();
 		int handValue = 0;
-		for (int i = 0; i < cardsInHand.size(); i++) {
-			int playerCard = card.getValue();
-			handValue += playerCard;			
+		for (int i = 0; i < myHand.size(); i++) {
+			Card playerCard = myHand.get(i);
+			handValue += playerCard.getValue();			
 		}
 		//call cards value here
 		//calculate sum of values

@@ -57,8 +57,9 @@ public class BlackjackSimulator {
 	}
 
 	public void playBlackjack() {
+		//deal first cards before this starts
 		do {
-
+			
 			hitStayOrQuit = sc.nextInt();
 			if (hitStayOrQuit == 1) {
 				printPlayOptions();
@@ -66,7 +67,9 @@ public class BlackjackSimulator {
 				// to getHandCard?
 			} else if (hitStayOrQuit == 2) {
 				// dealer's turn
-			} else if (hitStayOrQuit == 3) {
+				// decide if player wins or loses
+				// back to startmenu/play again?
+			} else if (hitStayOrQuit == 0) {
 				System.out.println("Thanks for playing!");
 				System.exit(0);
 			} else {
