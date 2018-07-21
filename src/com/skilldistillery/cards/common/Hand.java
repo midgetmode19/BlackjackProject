@@ -33,6 +33,9 @@ public abstract class Hand {
 		String card = "" + hand.get(1).rank + " of " + hand.get(1).suit + "\n";
 		return card;
 	}
+	public void discardAllCards () {
+		hand.clear();
+	}
 	
 	
 }
