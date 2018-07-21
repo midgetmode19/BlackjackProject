@@ -1,6 +1,7 @@
 package com.skilldistillery.cards.blackjack;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,13 @@ public class BlackjackSimulator {
 	public static void main(String[] args) {
 		BlackjackSimulator bjs = new BlackjackSimulator();
 		System.out.println("Welcome. Lets play a game of Blackjack!");
-		bjs.run();
+		do {
+			try {
+				bjs.run();
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input.");
+			}
+		} while (!(bjs.playAgain.equalsIgnoreCase("Y")));
 	}
 
 	public void run() {
@@ -64,7 +71,7 @@ public class BlackjackSimulator {
 	}
 
 	public void playAgainMenu() {
-		//try/catch(InputMismatchException)
+		// try/catch(InputMismatchException)
 		System.out.println("Would you like to play again? (Y/N)");
 		playAgain = sc.next();
 		if (dealOrQuit.equalsIgnoreCase("Y")) {
@@ -94,7 +101,6 @@ public class BlackjackSimulator {
 		System.out.println("Dealer's top card: " + dealerHand.getDealerTopCard());
 
 		printPlayOptions();
-
 		do {
 
 			hitStayOrQuit = sc.nextInt();
@@ -104,10 +110,10 @@ public class BlackjackSimulator {
 
 				System.out.println();
 				System.out.println("Your Hand:");
+
 				if (playerHand.getHandValue() > 21) { // checks if player went over 21
 					System.out.println("Bust!! You lose! </3");
-					playAgainMenu(); //currently selecting no still gets dealt another card and continues the game
-					System.exit(0);
+					playAgainMenu(); // currently selecting no still gets dealt another card and continues the game
 
 				} else {
 					System.out.println(playerHand.toString());
@@ -129,6 +135,7 @@ public class BlackjackSimulator {
 			}
 
 		} while (hitStayOrQuit != 0);
+
 		// back to simulator, if(dealer topCard value == 10||11), compare to hidden
 		// value of facedown dealer card
 		// else, ask player to hit or stay (while (playerHandValueSum <= 21))
