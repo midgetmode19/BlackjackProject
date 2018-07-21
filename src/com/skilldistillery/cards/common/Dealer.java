@@ -4,19 +4,23 @@ import com.skilldistillery.cards.blackjack.BlackjackHand;
 
 public class Dealer {
 	Hand hand = new BlackjackHand(); //has a hand
-	Card card; //hand has cards
+	private Deck deck;
 	public Dealer() {
-		
+		this.deck = new Deck(); // constructor, creates new deck for the game
 	}
 	public Hand getHand() {
 		return hand;
 	}
 	public Card getCard() {
-		return card;
+		return this.deck.DeckGetCard();
 	}
-	public void setCard(Card card) {
-		this.card = card; //adds a card to the hand
+
+	public void shuffleDeck() {
+		deck.shuffleDeck();
 	}
+//	public void setCard(Card card) {
+//		this.card = card; //adds a card to the hand
+//	}
 	
 	//gets a card from the deck (drawCards method?)
 	//gives that card to player hand face up (sysout)

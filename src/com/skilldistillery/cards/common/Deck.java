@@ -16,7 +16,9 @@ public class Deck {
 			for (int j = 0; j < ranks.length; j++) {
 				Rank rank = ranks[j];
 				Card card = new Card(suit, rank);
+				if(card != null) {
 				cardsDeck.add(card);
+				}
 			}
 			
 		}
@@ -30,7 +32,7 @@ public class Deck {
 		//return how many cards in list
 		return cardsAmount;
 	}
-	public Card getCard () {
+	public Card DeckGetCard () {
 		//deals a card from the deck
 		Card pickedCard = cardsDeck.remove(0);
 		//card is removed from deck and it's value is returned
