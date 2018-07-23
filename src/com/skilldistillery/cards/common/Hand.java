@@ -20,7 +20,6 @@ public abstract class Hand {
 	}
 	@Override
 	public String toString() {
-		//possibly edit this
 		String cards = "";
 		
 		for (int i = 0; i < hand.size(); i++) {

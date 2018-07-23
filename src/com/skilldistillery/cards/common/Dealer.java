@@ -18,10 +18,6 @@ public class Dealer {
 	public void shuffleDeck() {
 		deck.shuffleDeck();
 	}
-//	public void setCard(Card card) {
-//		this.card = card; //adds a card to the hand
-//	}
-	
 	//gets a card from the deck (drawCards method?)
 	//gives that card to player hand face up (sysout)
 	//gets another card from the deck

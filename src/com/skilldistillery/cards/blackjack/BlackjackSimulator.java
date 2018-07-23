@@ -11,10 +11,8 @@ public class BlackjackSimulator {
 	private Scanner sc = new Scanner(System.in);
 	private Dealer dealer = new Dealer(); // construct dealer to use deck
 	private BlackjackHand dealerHand = new BlackjackHand();
-	// private List<Card> dealerCards = new ArrayList<>();
 	private Player player = new Player(); // construct player, will need to do this many times if more than one //
 	private BlackjackHand playerHand = new BlackjackHand();
-	// private List<Card> playerCards = new ArrayList<>();
 	private Card cardInPlay; // do not use "new" operator because cards come from the deck.
 	public String dealOrQuit = "";
 	public String playAgain = "";
@@ -66,11 +64,9 @@ public class BlackjackSimulator {
 			System.out.println("Invalid input.");
 		}
 
-		// maybe try/catch for input that is NAN
 	}
 
 	public void playAgainMenu() {
-		// try/catch(InputMismatchException)
 		System.out.println("Would you like to play again? (Y/N)");
 		playAgain = sc.next();
 		if (playAgain.equalsIgnoreCase("Y")) {
@@ -91,11 +87,11 @@ public class BlackjackSimulator {
 		cardInPlay = dealer.getCard();
 		playerHand.addCardToHand(cardInPlay);
 		cardInPlay = dealer.getCard();
-		dealerHand.addCardToHand(cardInPlay); // getCard returns Card
+		dealerHand.addCardToHand(cardInPlay);
 		cardInPlay = dealer.getCard();
 		playerHand.addCardToHand(cardInPlay);
 		cardInPlay = dealer.getCard();
-		dealerHand.addCardToHand(cardInPlay); // getCard returns Card
+		dealerHand.addCardToHand(cardInPlay);
 
 		System.out.println("~~~Player~~~");
 		System.out.println(playerHand.toString());
@@ -114,22 +110,19 @@ public class BlackjackSimulator {
 				System.out.println(playerHand.toString());
 
 				if (playerHand.getHandValue() > 21) { // checks if player went over 21
-					System.out.println("Bust!! You lose! </3");
-					playAgainMenu(); // currently selecting no still gets dealt another card and continues the game
+					System.out.println("Bust!! You lose!");
+					playAgainMenu();
 
 				} else {
-//					System.out.println(playerHand.toString());
 					System.out.println("Dealer's top card: " + dealerHand.getDealerTopCard());
 
 					printPlayOptions();
 				}
-				// cardInPlay = deck.getCard(); //gets one card. put this card in as a parameter
-				// to getHandCard?
 			} else if (hitStayOrQuit == 2) {
 				// dealer's turn
 				dealerTurn();
 				// decide if player wins or loses
-				// back to startmenu/play again?
+				// back to startmenu/play again
 			} else if (hitStayOrQuit == 0) {
 				System.out.println("Thanks for playing!");
 				System.exit(0);
@@ -138,9 +131,9 @@ public class BlackjackSimulator {
 			}
 
 		} while (hitStayOrQuit != 0);
-
+		
 		// back to simulator, if(dealer topCard value == 10||11), compare to hidden
-		// value of facedown dealer card
+		// value of facedown dealer card (stretch goal)
 		// else, ask player to hit or stay (while (playerHandValueSum <= 21))
 		// if hiddenDealerCardValue + topCard value == 21, dealer wins. ask to play
 		// again
@@ -165,7 +158,7 @@ public class BlackjackSimulator {
 		System.out.println("~~~Player~~~");
 		System.out.println(playerHand.toString());
 		System.out.println();
-		while (dealerHand.getHandValue() <= 21){
+		while (dealerHand.getHandValue() <= 21) {
 			if (dealerHand.getHandValue() <= 17) {
 				System.out.println("Dealer draws.\n");
 				cardInPlay = dealer.getCard();
@@ -176,8 +169,7 @@ public class BlackjackSimulator {
 			if (dealerHand.getHandValue() > 21) {
 				System.out.println("Dealer busts. You win!");
 				playAgainMenu();
-			}
-			else if (dealerHand.getHandValue() > 17 && dealerHand.getHandValue() <= 21) {
+			} else if (dealerHand.getHandValue() > 17 && dealerHand.getHandValue() <= 21) {
 				System.out.println("Dealer Stays.");
 				if (dealerHand.getHandValue() > playerHand.getHandValue()) {
 					System.out.println("~~~Dealer~~~");

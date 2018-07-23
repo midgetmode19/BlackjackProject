@@ -11,10 +11,6 @@ public class BlackjackHand extends Hand {
 	public BlackjackHand() {
 		
 	}
-//	public String seeCards() {
-//		return card.toString();
-//	}
-
 	@Override
 	public int getHandValue() {
 		//iterate through hand
@@ -28,14 +24,6 @@ public class BlackjackHand extends Hand {
 		//calculate sum of values
 		return handValue;
 	}
-
-//	@Override
-//	public String toString() {
-//		return "Hand Total: " + getHandValue() + super.toString();
-//	}
-	
-	
-
 
 
 }
